@@ -1,17 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pixel Forge</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #0d0d0d; display: flex; justify-content: center; align-items: center; height: 100vh; }
-    canvas { border: 2px solid #333; image-rendering: pixelated; }
-  </style>
-</head>
-<body>
-  <canvas id="gameCanvas"></canvas>
-  <script src="src/main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixel Forge</title>
+    <style>
+      /* Reset default browser margins and padding */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Dark page background — the canvas sits on top of this */
+      body {
+        background-color: #1a1a1a;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      /* The game canvas — no border, just the raw pixel grid */
+      #gameCanvas {
+        display: block;
+        background-color: #0d0d0d;
+        /* Width and height are set by JavaScript in game.js */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- The single canvas element everything gets drawn to -->
+    <canvas id="gameCanvas"></canvas>
+
+    <!--
+      Load main.js as an ES module.
+      IMPORTANT: ES modules only work over HTTP, not file://.
+      In your Codespace, right-click index.html → "Open with Live Server"
+      to start a local dev server before opening in a browser.
+    -->
+    <script type="module" src="src/main.js"></script>
+  </body>
 </html>
